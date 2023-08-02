@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Сборка') {
+            steps {
+                echo 'Выполняем команды для сборки'
+               // sh 'java -jar /Users/half-life/Documents/artifact/projects/jenkins-starter/build/libs/jenkins-starter-0.0.1-SNAPSHOT.jar'
+                 echo 'Команда после запуска спринга'
+            }
+        }
+        stage('Тестирование') {
+            steps {
+                echo 'Тестируем нашу сборку'
+            }
+        }
+        stage('Развертывание') {
+            steps {
+                echo 'Переносим код в рабочую среду или создаем артефакт'
+            }
+        }
+    }
+}
