@@ -17,6 +17,7 @@ pipeline {
     agent { docker { image 'python:latest' } }
 
     stages {
+    sh 'open -a Docker'
         stage('Подготовка') {
             steps {
                 sh "python --version"
