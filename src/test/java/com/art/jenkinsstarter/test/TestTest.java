@@ -1,4 +1,4 @@
-package com.art.jenkinsstarter;
+package com.art.jenkinsstarter.test;
 
 import org.junit.jupiter.api.Test;
 

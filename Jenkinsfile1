@@ -12,8 +12,7 @@ pipeline {
         stage('Тестирование') {
             steps {
                 echo 'Тестируем нашу сборку'
-                 sh "./gradlew --info clean test "
-                  // + gradleArgs.join(" ") + " --tests ru.alfabank.testing.api_middle.*"
+                 sh "./gradlew --info clean test"
             }
         }
         stage('Развертывание') {

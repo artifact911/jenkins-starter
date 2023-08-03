@@ -1,0 +1,41 @@
+// если docker не распознается
+// https://stackoverflow.com/questions/40043004/docker-command-not-found-mac-mini-only-happens-in-jenkins-shell-step-but-wo/58688536#58688536
+//For others (Late but worthy), I installed Jenkins via Brew, so I add Docker's path to the file below: /usr/local/Cellar/jenkins-lts/2.176.3/homebrew.mxcl.jenkins-lts.plist (Whole file looks like below)
+// add
+// <key>RunAtLoad</key>
+//       <true />
+//       <key>EnvironmentVariables</key>
+//       <dict>
+//         <key>PATH</key>
+//         <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Docker.app/Contents/Resources/bin/:/Users/Kh0a/Library/Group\ Containers/group.com.docker/Applications/Docker.app/Contents/Resources/bin</string>
+//       </dict>
+
+// restart brew services restart jenkins-lts
+
+
+pipeline {
+    agent { docker { image 'python:latest' } }
+
+    stages {
+        stage('Подготовка') {
+            steps {
+                sh "python --version"
+            }
+        }
+        stage('Сборка') {
+            steps {
+                echo 'Выполняем команды для сборки'
+            }
+        }
+        stage('Тестирование') {
+            steps {
+                echo 'Тестируем нашу сборку'
+            }
+        }
+        stage('Развертывание') {
+            steps {
+                echo 'Переносим код в рабочую среду или создаем артефакт'
+            }
+        }
+    }
+}
